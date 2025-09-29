@@ -1,0 +1,68 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environments
+venv/
+venv_new/
+env/
+ENV/
+.venv/
+.env
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+visionmoto.db
+src/visionmoto.db
+
+# Model files
+*.pt
+yolov8*.pt
+
+# Media files (large)
+*.mp4
+*.avi
+*.mov
+!assets/sample_video.mp4
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+
+# Reports (keep template)
+performance_report_*.json
+!reports/performance_report.json
+
+# Distribution
+build/
+dist/
+*.egg-info/
+
+# Coverage
+htmlcov/
+.coverage
+.pytest_cache/
+
+# Node (if any)
+node_modules/
