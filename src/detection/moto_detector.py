@@ -19,12 +19,12 @@ class MotoDetector:
         self.total_detections = 0
         self.unique_motos = set()
         
-        # Classes COCO que podem ser motos ou similares
+
         self.moto_classes = {
-            3: "motorbike",      # moto
-            1: "bicycle",        # bicicleta
-            2: "car",            # carro
-            7: "truck",          # caminhão
+            3: "motorbike",      
+            1: "bicycle",        
+            2: "car",            
+            7: "truck",          
         }
         
     def detect_motos(self, frame):
