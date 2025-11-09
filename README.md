@@ -181,7 +181,7 @@ yaml
 | Arquivo | Descrição |
 |----------|------------|
 | **ler_e_enviar_placa.py** | Lê a imagem da moto via OCR, valida o formato da placa e envia o registro (entrada/saída) para o banco através da API Flask. |
-| **images/** | Pasta onde ficam armazenadas as imagens capturadas das câmeras dos pátios. O script `ler_e_enviar_placa.py` utiliza estas imagens como entrada. |
+| **images/** | Pasta onde ficam armazenadas as imagens capturadas das câmeras . O script `ler_e_enviar_placa.py` utiliza estas imagens como entrada. |
 | **login.json** | Contém dados de autenticação do usuário ou token usado para comunicação com o backend. |
 
 ---
@@ -194,7 +194,7 @@ Instale as dependências necessárias (além das já listadas em `requirements.t
 ```bash
 pip install easyocr opencv-python torch torchvision
 2️⃣ Posicione a imagem
-Coloque a imagem da moto na pasta rastreio/images/
+Coloque a imagem da placa da moto na pasta rastreio/images/
 Exemplo: rastreio/images/image.png
 
 3️⃣ Execute o script
