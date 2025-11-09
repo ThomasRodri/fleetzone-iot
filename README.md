@@ -18,6 +18,7 @@ fleetzone-iot/
 │── assets/              # Vídeos e imagens de teste
 │── demos/               # Scripts de execução/demonstração
 │   └── main.py
+|── rastreio
 │── fleetzone.py         # Classe principal do sistema
 │── backend/             # API Flask + WebSocket
 │   ├── app.py
@@ -157,6 +158,61 @@ Os relatórios são gerados automaticamente em `reports/` contendo:
   netstat -ano | findstr 5000
   taskkill /PID <pid> /F
   ```
+
+## 🎯 Pasta Rastreio
+
+A pasta `rastreio/` concentra o módulo responsável por **ler placas de motocicletas a partir de imagens** e **enviar os registros ao backend**, gerando o histórico de **entrada e saída** das motos nos pátios.
+
+---
+
+### 📂 Estrutura real
+
+rastreio/
+├── images/ # Armazena imagens capturadas das placas
+├── ler_e_enviar_placa.py # Script principal de OCR e integração com backend
+└── login.json # Credenciais ou configuração de autenticação da API
+
+yaml
+
+---
+
+### ⚙️ Funções principais
+
+| Arquivo | Descrição |
+|----------|------------|
+| **ler_e_enviar_placa.py** | Lê a imagem da moto via OCR, valida o formato da placa e envia o registro (entrada/saída) para o banco através da API Flask. |
+| **images/** | Pasta onde ficam armazenadas as imagens capturadas das câmeras dos pátios. O script `ler_e_enviar_placa.py` utiliza estas imagens como entrada. |
+| **login.json** | Contém dados de autenticação do usuário ou token usado para comunicação com o backend. |
+
+---
+
+### ▶️ Como executar o rastreamento de placas
+
+#### 1️⃣ Pré-requisitos
+Instale as dependências necessárias (além das já listadas em `requirements.txt`):
+
+```bash
+pip install easyocr opencv-python torch torchvision
+2️⃣ Posicione a imagem
+Coloque a imagem da moto na pasta rastreio/images/
+Exemplo: rastreio/images/image.png
+
+3️⃣ Execute o script
+bash
+cd rastreio
+python ler_e_enviar_placa.py
+4️⃣ Saída esperada
+O terminal exibirá a leitura feita via OCR, o formato da placa detectada e o resultado da operação (entrada ou saída):
+
+cpp
+🔍 Lendo placa da imagem...
+Resultados OCR (normalizados):
+ - BRASIL | conf=0.334 | placa_valida=False
+ - BRA2E19 | conf=0.591 | placa_valida=True
+
+✅ Placa escolhida: BRA2E19
+ℹ️ Último registro da placa BRA2E19 foi SAÍDA. Definindo agora como ENTRADA.
+💾 Registro salvo com sucesso no banco!
 
 ---
 
